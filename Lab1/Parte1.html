@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Lab1-SW</title>
+        <script language="JavaScript">
+            function calcular(){
+                var op1 = document.getElementById("o1").value;
+                var op2 = document.getElementById("o2").value;
+                var res = document.getElementById("o3").value;
+                var opr = document.getElementById("opr").value;
+                switch(opr){
+                    case "1":
+                        sumar(op1, op2, res);
+                        break;
+                    case "2":
+                        restar(op1, op2, res);
+                        break;
+                    case "3":
+                        multiplicar(op1, op2, res);
+                        break;
+                    case "4":
+                        dividir(op1, op2, res);
+                }
+            }
+            function sumar(op1, op2, res){
+                if(res == parseInt(op1)+parseInt(op2)){
+                    alert("Respuesta correcta, ¡Enhorabuena!");
+                }else{
+                    alert("Respuesta erronea, ¡Vuelve a intentarlo!");
+                }
+            }
+            function restar(op1, op2, res){
+                if(res==parseInt(op1)-parseInt(op2)){
+                    alert("Respuesta correcta, ¡Enhorabuena!");
+                }else{
+                    alert("Respuesta erronea, ¡Vuelve a intentarlo!");
+                }
+            }
+            function multiplicar(op1, op2, res){
+                if(res==parseInt(op1)*parseInt(op2)){
+                    alert("Respuesta correcta, ¡Enhorabuena!");
+                }else{
+                    alert("Respuesta erronea, ¡Vuelve a intentarlo!");
+                }
+            }
+            function dividir(op1, op2, res){
+                if(res==parseInt(op1)/parseInt(op2)){
+                    alert("Respuesta correcta, ¡Enhorabuena!");
+                }else{
+                    alert("Respuesta erronea, ¡Vuelve a intentarlo!");
+                }
+            }
+            function borrar(){
+                document.getElementById("o1").value = "";
+                document.getElementById("o2").value = "";
+                document.getElementById("o3").value = "";
+                document.getElementById("opr").value = "1";
+            }
+        </script>
+    
+    </head>
+    <body>
+        <h1>Calculador matemático</h1>
+        <h2>Operando 1:</h2>
+        <input type="text" name="op1" id="o1" value="">
+        <h3>Tipo de operación: </h3>
+        <select name="operando" id="opr">
+            <option value="1">+</option>
+            <option value="2">-</option>
+            <option value="3">*</option>
+            <option value="4">/</option>
+        </select>
+        <h2>Operando 2:</h2>
+        <input type="text" name="op2" id="o2" value="">
+        <h2>Resultado esperado:</h2>
+        <input type="text" name="res" id="o3" value="">
+        <input type="button" name="bot1" value="calcular" id="calc"
+        onClick="calcular()">
+        <input type="button" name="bot2" value="reset" id="res"            onClick="borrar()">
+    </body>
+</html>
