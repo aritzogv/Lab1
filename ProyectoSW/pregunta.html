@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="tipo_contenido" content="text/html;" http-equiv="content-type" charset="utf-8">
+	<title>Preguntas</title>
+    <link rel='stylesheet' type='text/css' href='estilos/style.css' />
+	<link rel='stylesheet'
+		   type='text/css'
+		   media='only screen and (min-width: 530px) and (min-device-width: 481px)'
+		   href='estilos/wide.css' />
+	<link rel='stylesheet'
+		   type='text/css'
+		   media='only screen and (max-width: 480px)'
+		   href='estilos/smartphone.css' />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script language="JavaScript">
+    $(document).ready(function(){
+      $("#bt").click(function(){
+        var ce = $("#ce").val();
+        var en = $("#en").val();
+        var rc = $("#rc").val();
+        var r1 = $("#r1").val();
+        var r2 = $("#r2").val();
+        var r3 = $("#r3").val();
+        var co = $("#co").val();
+        var te = $("#te").val();
+        var emailER = /^[a-zA-Z]+[0-9][0-9][0-9]@ikasle.ehu.eus$/;
+        var comER = /[0-5]/;
+        var enER = /^([^\n]){10,}$/;
+        if(emailER.test(ce)){
+          if(comER.test(co)){
+            if(enER.test(en)){
+              if(rc!=""&&r1!=""&&r2!=""&&r3!=""&&co!=""&&te!=""){
+                return true;
+              }else{
+                alert("Rellena todos los campos marcados con asterísco");
+              }
+            }else{
+              alert("La pregunta debe ser superior a 10 caracteres");
+            }
+          }else{
+            alert("La complejidad debe ir desde 0 a 5 ambos inclusive");
+          }
+        }else{
+          alert("El email debe ser de la forma: Letras + 3 dígitos + “@ikasle.ehu.eus”");
+        }
+      });
+    });
+  </script>
+  </head>
+  <body>
+  <div id='page-wrap'>
+	<header class='main' id='h1'>
+		<span class="right"><a href="registro">Registrarse</a></span>
+      		<span class="right"><a href="login">Login</a></span>
+      		<span class="right" style="display:none;"><a href="/logout">Logout</a></span>
+		<h2>Quiz: el juego de las preguntas</h2>
+    </header>
+	<nav class='main' id='n1' role='navigation'>
+		<span><a href='layout.html'>Inicio</a></span>
+		<span><a href='pregunta.html'>Insertar Pregunta</a></span>
+		<span><a href='creditos.html'>Creditos</a></span>
+	</nav>
+    <section class="main" id="s1">
+
+	<div>
+	<form  id="fpreguntas" name="fpreguntas" action="Prueba.php">
+    <h3>Correo electrónico:*</h3><input type="text" name="dir" size="125" id="ce"><br>
+    <h3>Enunciado de la pregunta:*</h3><input type="text" name="preg" size="125" id="en"><br>
+    <h3>Respuesta correcta:*</h3><input type="text" name="resc" size="125" id="rc"><br>
+    <h3>Respuesta incorrecta 1:*</h3><input type="text" name="res1" size="125" id="r1"><br>
+    <h3>Respuesta incorrecta 2:*</h3><input type="text" name="res2" size="125" id="r2"><br>
+    <h3>Respuesta incorrecta 3:*</h3><input type="text" name="res3" size="125" id="r3"><br>
+    <h3>Complejidad de la pregunta:*</h3><input type="text" name="comp" size="125" id="co"><br>
+    <h3>Tema de la pregunta:*</h3><input type="text" name="tema" size="125" id="te"><br>
+    <input type="submit" name="env" value="Enviar solicitud" id="bt">
+  </form>
+	</div>
+    </section>
+	<footer class='main' id='f1'>
+		<a href='https://github.com'>Link GITHUB</a>
+	</footer>
+</div>
+</body>
+</html>
